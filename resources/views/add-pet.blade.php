@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,32 +7,6 @@
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        .price-notice {
-            font-size: 0.82rem;
-            color: rgba(255, 255, 255, 0.6);
-            margin-top: 6px;
-            display: block;
-            line-height: 1.4;
-        }
-
-        .price-notice i {
-            color: #00c6ff;
-            margin-right: 4px;
-        }
-
-        .validation-error {
-            color: #ff6b6b;
-            font-size: 12px;
-            display: block;
-            margin-top: 5px;
-        }
-
-        .input-invalid {
-            border: 1px solid #ff6b6b !important;
-        }
-    </style>
 </head>
 <body>
 
@@ -78,7 +51,6 @@
 
                 @csrf
 
-                <!-- Pet Name -->
                 <div class="form-group">
                     <label><i class="fa-solid fa-tag"></i> Pet Name</label>
                     <input type="text" name="pet_name" id="pet_name"
@@ -86,7 +58,6 @@
                     <small class="validation-error" id="petNameError"></small>
                 </div>
 
-                <!-- Category & Gender -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
 
                     <div class="form-group">
@@ -115,7 +86,6 @@
 
                 </div>
 
-                <!-- Age & Contact No -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
 
                     <div class="form-group">
@@ -134,7 +104,6 @@
 
                 </div>
 
-                <!-- Expected Price -->
                 <div class="form-group">
                     <label><i class="fa-solid fa-coins"></i> Expected Price (৳)</label>
 
@@ -163,7 +132,6 @@
                     </span>
                 </div>
 
-                <!-- Location -->
                 <div class="form-group">
                     <label><i class="fa-solid fa-location-dot"></i> Location</label>
                     <input type="text" name="location" id="location"
@@ -171,7 +139,6 @@
                     <small class="validation-error" id="locationError"></small>
                 </div>
 
-                <!-- Pet Image -->
                 <div class="form-group">
                     <label><i class="fa-solid fa-image"></i> Upload Pet Image</label>
                     <input type="file" name="pet_image" id="pet_image"
@@ -179,7 +146,6 @@
                     <small class="validation-error" id="imageError"></small>
                 </div>
 
-                <!-- Description -->
                 <div class="form-group">
                     <label><i class="fa-solid fa-pen"></i> Short Description</label>
                     <textarea name="description" id="description"
@@ -188,7 +154,6 @@
                     <small class="validation-error" id="descriptionError"></small>
                 </div>
 
-                <!-- Submit -->
                 <button type="submit" class="btn btn-primary btn-block">
                     <i class="fa-solid fa-plus"></i> Post Pet for Adoption
                 </button>
@@ -214,7 +179,6 @@
             return message === '';
         }
 
-        // Pet Name: letters and spaces only
         function validatePetName() {
             const input = document.getElementById('pet_name');
             const value = input.value.trim();
@@ -234,7 +198,6 @@
             return showError(input, 'petNameError', '');
         }
 
-        // Category
         function validateCategory() {
             const input = document.getElementById('category');
             const valid = ['dog', 'cat', 'bird', 'other'].includes(input.value);
@@ -246,7 +209,6 @@
             );
         }
 
-        // Gender
         function validateGender() {
             const input = document.getElementById('gender');
             const valid = ['male', 'female'].includes(input.value);
@@ -258,7 +220,6 @@
             );
         }
 
-        // Age: examples 6 Months, 2 Years, 3 Weeks
         function validateAge() {
             const input = document.getElementById('age');
             const value = input.value.trim();
@@ -284,7 +245,6 @@
             return showError(input, 'ageError', '');
         }
 
-        // Bangladesh mobile number
         function validatePhone() {
             const input = document.getElementById('phone');
             const value = input.value.trim();
@@ -304,7 +264,6 @@
             return showError(input, 'phoneError', '');
         }
 
-        // Expected price
         function validatePrice() {
             const input = document.getElementById('asking_price');
             const validPrices = ['2000', '2500', '3000', '3500', '4000',
@@ -317,7 +276,6 @@
             );
         }
 
-        // Location
         function validateLocation() {
             const input = document.getElementById('location');
             const value = input.value.trim();
@@ -333,7 +291,6 @@
             return showError(input, 'locationError', '');
         }
 
-        // Image
         function validateImage() {
             const input = document.getElementById('pet_image');
             const file = input.files[0];
@@ -355,7 +312,6 @@
             return showError(input, 'imageError', '');
         }
 
-        // Optional description
         function validateDescription() {
             const input = document.getElementById('description');
             const value = input.value.trim();
@@ -371,7 +327,6 @@
             return showError(input, 'descriptionError', '');
         }
 
-        // Show errors while typing; never remove user input
         document.getElementById('pet_name').addEventListener('input', validatePetName);
         document.getElementById('category').addEventListener('change', validateCategory);
         document.getElementById('gender').addEventListener('change', validateGender);
@@ -382,7 +337,6 @@
         document.getElementById('pet_image').addEventListener('change', validateImage);
         document.getElementById('description').addEventListener('input', validateDescription);
 
-        // Final validation before submission
         form.addEventListener('submit', function(event) {
             const results = [
                 validatePetName(),
@@ -410,4 +364,3 @@
 
 </body>
 </html>
-```

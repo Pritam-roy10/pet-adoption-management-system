@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Pets - PetAdopt</title>
-    
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -33,7 +33,7 @@
     </nav>
     <section class="find-pets-section">
         <div class="container">
-            
+
             <form action="{{ url('/find-pets') }}" method="GET" class="search-box-wrapper">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
                 <input type="text" name="search" placeholder="Search by breed or name (e.g. Persian, Husky, Milo)..." value="{{ request('search') }}">
@@ -41,7 +41,7 @@
             </form>
 
             <div class="find-layout">
-                
+
                 <form action="{{ url('/find-pets') }}" method="GET" id="filter-form" class="filter-sidebar">
                     <h3 class="filter-title"><i class="fa-solid fa-filter"></i> Filters</h3>
 
@@ -97,7 +97,7 @@
                 </form>
 
                 <div class="pet-grid">
-                    
+
                     @forelse($pets ?? [] as $pet)
                         <div class="pet-card">
                             <div class="pet-img-box">
@@ -115,12 +115,10 @@
                                     <span>{{ ucfirst($pet->age) }}</span>
                                     <span>{{ ucfirst($pet->gender) }}</span>
                                 </div>
-                                <!-- Redirects to Adoption Form Page -->
                                 <a href="{{ url('/adopt/' . $pet->id) }}" class="btn btn-primary btn-block">Adopt Now</a>
                             </div>
                         </div>
                     @empty
-                        <!-- Static Demo Cards -->
                         <div class="pet-card">
                             <div class="pet-img-box">
                                 <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=900&q=80" alt="Cat">

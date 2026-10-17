@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PetAdopt - Find Your Perfect Companion</title>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
@@ -17,7 +17,7 @@
 
     <header class="navbar">
         <div class="container nav-container">
-           
+
             <a href="{{ url('/') }}" class="logo">
                 <div class="logo-icon"><i class="fa-solid fa-paw"></i></div>
                 Pet<span>Finder</span>
@@ -51,7 +51,7 @@
                 </div>
                 <h1>Find Your New <span>Best Friend</span> & Bring Joy Home</h1>
                 <p>Connect with verified pet owners and shelters. Discover thousands of adorable pets waiting for a loving home today.</p>
-                
+
                 <div class="hero-buttons">
                     <a href="{{ url('/find-pets') }}" class="btn btn-primary btn-lg">
                         <i class="fa-solid fa-magnifying-glass"></i> Explore Pets
@@ -94,28 +94,24 @@
             </div>
 
             <div class="category-grid">
-                <!-- Dogs -->
                 <a href="{{ url('/find-pets?category=dogs') }}" class="category-card">
                     <div class="icon-box"><i class="fa-solid fa-dog"></i></div>
                     <h3>Dogs</h3>
                     <span>120+ Available</span>
                 </a>
 
-                <!-- Cats -->
                 <a href="{{ url('/find-pets?category=cats') }}" class="category-card">
                     <div class="icon-box"><i class="fa-solid fa-cat"></i></div>
                     <h3>Cats</h3>
                     <span>85+ Available</span>
                 </a>
 
-                <!-- Birds -->
                 <a href="{{ url('/find-pets?category=birds') }}" class="category-card">
                     <div class="icon-box"><i class="fa-solid fa-dove"></i></div>
                     <h3>Birds</h3>
                     <span>40+ Available</span>
                 </a>
 
-                <!-- Others -->
                 <a href="{{ url('/find-pets?category=others') }}" class="category-card">
                     <div class="icon-box"><i class="fa-solid fa-shield-cat"></i></div>
                     <h3>Others</h3>
