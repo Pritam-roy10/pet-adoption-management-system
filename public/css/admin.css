@@ -1,0 +1,195 @@
+:root {
+    --bg-dark: #0b1120;
+    --card-bg: #151f32;
+    --input-bg: #1e293b;
+    --accent-cyan: #00bcd4;
+    --accent-blue: #0284c7;
+    --text-white: #ffffff;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Layout Setup */
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.admin-sidebar {
+    width: 250px;
+    background-color: var(--card-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-sidebar .brand-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--accent-cyan);
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    margin-bottom: 12px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    color: var(--text-white);
+}
+
+/* Main Content Area */
+.admin-content {
+    flex: 1;
+    padding: 32px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-white);
+}
+
+/* Data Table Component */
+.table-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.admin-table th {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 16px;
+    font-size: 14px;
+    color: var(--accent-cyan);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-table td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 14px;
+    color: var(--text-white);
+}
+
+.admin-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.pet-thumb {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Badges & Status */
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.badge-pending {
+    background-color: rgba(245, 158, 11, 0.2);
+    color: var(--warning);
+}
+
+.badge-approved,
+.badge-accepted {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: var(--success);
+}
+
+.badge-rejected {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: var(--danger);
+}
+
+.badge-admin {
+    background-color: rgba(0, 188, 212, 0.2);
+    color: var(--accent-cyan);
+}
+
+.badge-user {
+    background-color: rgba(148, 163, 184, 0.2);
+    color: var(--text-muted);
+}
+
+/* Buttons */
+.btn-action {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s;
+}
+
+.btn-action:hover {
+    opacity: 0.85;
+}
+
+.btn-approve {
+    background-color: var(--success);
+    color: #fff;
+}
+
+.btn-reject {
+    background-color: var(--danger);
+    color: #fff;
+    margin-left: 6px;
+}
