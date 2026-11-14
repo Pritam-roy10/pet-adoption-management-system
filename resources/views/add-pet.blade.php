@@ -43,13 +43,12 @@
                 <p>Fill in the basic details to find a new home</p>
             </div>
 
-            <form id="petForm" class="auth-form"
-                  method="POST"
-                  action="{{ url('/add-pet') }}"
-                  enctype="multipart/form-data"
-                  novalidate>
-
-                @csrf
+           <form id="petForm" class="auth-form"
+      method="POST"
+      action="{{ route('pets.store') }}"
+      enctype="multipart/form-data"
+      novalidate>
+    @csrf
 
                 <div class="form-group">
                     <label><i class="fa-solid fa-tag"></i> Pet Name</label>

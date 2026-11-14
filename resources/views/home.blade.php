@@ -23,21 +23,18 @@
                 Pet<span>Finder</span>
             </a>
 
-           <div class="nav-menu">
-    <a href="{{ url('/') }}" class="nav-link">Home</a>
-    <a href="{{ url('/find-pets') }}" class="nav-link">Find Pets</a>
-    <a href="{{ url('/add-pet') }}" class="nav-link">Add Your Pet</a>
-    <a href="{{ url('/about') }}" class="nav-link">About Us</a>
-    <a href="{{ url('/contact') }}" class="nav-link">Contact</a>
-</div>
+            <div class="nav-menu">
+                <a href="{{ url('/') }}" class="nav-link">Home</a>
+                <a href="{{ url('/find-pets') }}" class="nav-link">Find Pets</a>
+                <a href="{{ url('/add-pet') }}" class="nav-link">Add Your Pet</a>
+                <a href="{{ url('/about') }}" class="nav-link">About Us</a>
+                <a href="{{ url('/contact') }}" class="nav-link">Contact</a>
+            </div>
 
+            <!-- সবসময় Login এবং Sign Up বাটন দুটিই দেখাবে, কোনো পরিবর্তন হবে না -->
             <div class="nav-actions">
-                @auth
-                    <a href="{{ url('/dashboard') }}" class="btn btn-outline">Dashboard</a>
-                @else
-                    <a href="{{ url('/login') }}" class="btn btn-ghost">Login</a>
-                    <a href="{{ url('/signup') }}" class="btn btn-primary">Sign Up</a>
-                @endauth
+                <a href="{{ url('/login') }}" class="btn btn-ghost">Login</a>
+                <a href="{{ url('/signup') }}" class="btn btn-primary">Sign Up</a>
             </div>
 
         </div>
