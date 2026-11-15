@@ -6,9 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+<<<<<<< HEAD
     /**
      * Run the migrations.
      */
+=======
+    
+>>>>>>> 258ba7caed6733567a35ad32773799e72aeda60b
     public function up(): void
 {
     Schema::create('pets', function (Blueprint $table) {
@@ -27,9 +31,13 @@ return new class extends Migration
     });
 }
 
+<<<<<<< HEAD
     /**
      * Reverse the migrations.
      */
+=======
+    
+>>>>>>> 258ba7caed6733567a35ad32773799e72aeda60b
     public function down(): void
     {
         Schema::dropIfExists('pets');
