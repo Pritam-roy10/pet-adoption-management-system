@@ -58,7 +58,7 @@
                     <!-- Developer 1: Pritam Roy -->
                     <div class="dev-card">
                         <div class="dev-img-box">
-                            <img src="{{ asset('images/pritam.jpg') }}" alt="Pritam Roy" onerror="this.src='https://ui-avatars.com/api/?name=Pritam+Roy&background=0D8ABC&color=fff&size=200'">
+                            <img src="{{ asset('images/team/pritam.jpg') }}" alt="Pritam Roy" onerror="this.src='https://ui-avatars.com/api/?name=Pritam+Roy&background=0D8ABC&color=fff&size=200'">
                         </div>
                         <h4>Pritam Roy</h4>
                         <span class="dev-role">Lead Developer</span>
@@ -68,7 +68,7 @@
                     <!-- Developer 2: Myshha Maliha Medha -->
                     <div class="dev-card">
                         <div class="dev-img-box">
-                            <img src="{{ asset('images/myshha.jpg') }}" alt="Myshaa Maliha Madha" onerror="this.src='https://ui-avatars.com/api/?name=Myshha+Medha&background=0D8ABC&color=fff&size=200'">
+                            <img src="{{ asset('images/team/myshha1.jpeg') }}" alt="Myshaa Maliha Madha" onerror="this.src='https://ui-avatars.com/api/?name=Myshha+Medha&background=0D8ABC&color=fff&size=200'">
                         </div>
                         <h4>Myshaa Maliha Madha</h4>
                         <span class="dev-role">UI/UX & Frontend Developer</span>
@@ -78,7 +78,7 @@
                     <!-- Developer 3: Dabasish Roy -->
                     <div class="dev-card">
                         <div class="dev-img-box">
-                            <img src="{{ asset('images/dabasish.jpg') }}" alt="Dabasish Roy" onerror="this.src='https://ui-avatars.com/api/?name=Dabasish+Roy&background=0D8ABC&color=fff&size=200'">
+                            <img src="{{ asset('images/team/dabasish1.jpeg') }}" alt="Dabasish Roy" onerror="this.src='https://ui-avatars.com/api/?name=Dabasish+Roy&background=0D8ABC&color=fff&size=200'">
                         </div>
                         <h4>Dabasish Roy</h4>
                         <span class="dev-role">Backend & Database Engineer</span>
