@@ -6,38 +6,28 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-<<<<<<< HEAD
-    /**
-     * Run the migrations.
-     */
-=======
-    
->>>>>>> 258ba7caed6733567a35ad32773799e72aeda60b
     public function up(): void
-{
-    Schema::create('pets', function (Blueprint $table) {
-        $table->id();
-        $table->string('pet_name');
-        $table->string('category');
-        $table->string('gender');
-        $table->string('age');
-        $table->string('phone');
-        $table->decimal('asking_price', 10, 2);
-        $table->string('location');
-        $table->string('pet_image');
-        $table->text('description')->nullable();
-        $table->string('status')->default('pending'); // পেন্ডিং বা অ্যাপ্রুভড স্ট্যাটাস রাখার জন্য
-        $table->timestamps();
-    });
-}
+    {
+        Schema::create('pets', function (Blueprint $table) {
+            $table->id();
+            $table->string('pet_name');
+            $table->string('category');
+            $table->string('gender');
+            $table->string('age');
+            $table->string('phone');
+            $table->decimal('asking_price', 10, 2);
+            $table->decimal('offered_price', 10, 2)->nullable();
+            $table->string('payout_number', 20)->nullable();
+            $table->string('payout_trx_id', 50)->nullable();
+            $table->string('payout_status', 20)->default('unpaid'); 
+            $table->string('location');
+            $table->string('pet_image');
+            $table->text('description')->nullable();
+            $table->string('status')->default('pending'); 
+            $table->timestamps();
+        });
+    }
 
-<<<<<<< HEAD
-    /**
-     * Reverse the migrations.
-     */
-=======
-    
->>>>>>> 258ba7caed6733567a35ad32773799e72aeda60b
     public function down(): void
     {
         Schema::dropIfExists('pets');
