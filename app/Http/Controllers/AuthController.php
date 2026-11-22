@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    
     public function register(Request $request)
     {
         $request->validate([
@@ -30,20 +29,24 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect('/'); 
+        return redirect('/')->with('auth_popup', [
+            'title' => 'Sign Up Successful!',
+            'text'  => 'Account created successfully! Welcome to PetAdopt.'
+        ]);
     }
 
-  
     public function login(Request $request)
     {
-        $credentials = $request->validate([
+        $credentials =$request->validate([
             'username' => 'required',
             'password' => 'required',
         ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended('/'); 
+        if (Auth::attempt($credentials)) {$request->session()->regenerate();
+            return redirect()->intended('/')->with('auth_popup', [
+                'title' => 'Login Successful!',
+                'text'  => 'Welcome back to PetAdopt!'
+            ]);
         }
 
         return back()->withErrors([
@@ -51,12 +54,10 @@ class AuthController extends Controller
         ]);
     }
 
-   
     public function logout(Request $request)
     {
         Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        $request->session()->invalidate();$request->session()->regenerateToken();
         return redirect('/login');
     }
 }
