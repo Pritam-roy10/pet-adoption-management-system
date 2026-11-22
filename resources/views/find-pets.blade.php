@@ -120,7 +120,7 @@
                                     <span>{{ $pet->age }}</span>
                                     <span>{{ ucfirst($pet->gender) }}</span>
                                 </div>
-                                <p class="pet-price" style="margin: 8px 0; font-weight: 600; color: #f97316;">Asking Price: ৳{{ $pet->asking_price }}</p>
+                                <p class="pet-price" style="margin: 8px 0; font-weight: 600; color: #f97316;">Price: ৳{{ $pet->asking_price }}</p>
                                 <a href="{{ url('/adopt/' . $pet->id) }}" class="btn btn-primary btn-block">Adopt Now</a>
                             </div>
                         </div>
