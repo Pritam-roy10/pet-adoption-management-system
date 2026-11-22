@@ -44,11 +44,11 @@
             </div>
 
            <form id="petForm" class="auth-form"
-      method="POST"
-      action="{{ route('pets.store') }}"
-      enctype="multipart/form-data"
-      novalidate>
-    @csrf
+                 method="POST"
+                 action="{{ route('pets.store') }}"
+                 enctype="multipart/form-data"
+                 novalidate>
+                @csrf
 
                 <div class="form-group">
                     <label><i class="fa-solid fa-tag"></i> Pet Name</label>
@@ -103,31 +103,43 @@
 
                 </div>
 
-                <div class="form-group">
-                    <label><i class="fa-solid fa-coins"></i> Expected Price (৳)</label>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
 
-                    <select name="asking_price" id="asking_price"
-                            class="custom-select" required>
-                        <option value="">Select Expected Price</option>
-                        <option value="2000">2,000</option>
-                        <option value="2500">2,500</option>
-                        <option value="3000">3,000</option>
-                        <option value="3500">3,500</option>
-                        <option value="4000">4,000</option>
-                        <option value="4500">4,500</option>
-                        <option value="5000">5,000</option>
-                        <option value="5500">5,500</option>
-                        <option value="6000">6,000</option>
-                        <option value="6500">6,500</option>
-                        <option value="7000">7,000</option>
-                    </select>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-coins"></i> Expected Price (৳)</label>
 
-                    <small class="validation-error" id="priceError"></small>
+                        <select name="asking_price" id="asking_price"
+                                class="custom-select" required>
+                            <option value="">Select Expected Price</option>
+                            <option value="2000">2,000</option>
+                            <option value="2500">2,500</option>
+                            <option value="3000">3,000</option>
+                            <option value="3500">3,500</option>
+                            <option value="4000">4,000</option>
+                            <option value="4500">4,500</option>
+                            <option value="5000">5,000</option>
+                            <option value="5500">5,500</option>
+                            <option value="6000">6,000</option>
+                            <option value="6500">6,500</option>
+                            <option value="7000">7,000</option>
+                        </select>
 
+                        <small class="validation-error" id="priceError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-wallet"></i> bKash Number (For Payout)</label>
+                        <input type="tel" name="payout_number" id="payout_number"
+                               placeholder="01700000000" required>
+                        <small class="validation-error" id="payoutNumberError"></small>
+                    </div>
+
+                </div>
+
+                <div class="form-group" style="margin-top: -6px;">
                     <span class="price-notice">
                         <i class="fa-solid fa-circle-info"></i>
-                        Select your expected price. Based on platform verification
-                        and services, the admin will confirm your final payout.
+                        Select your expected price and bKash number. After verification and service/transport adjustment, admin will send the final payout to your bKash.
                     </span>
                 </div>
 
@@ -166,7 +178,6 @@
 
         function showError(input, errorId, message) {
             const error = document.getElementById(errorId);
-
             error.textContent = message;
 
             if (message) {
@@ -201,22 +212,14 @@
             const input = document.getElementById('category');
             const valid = ['dog', 'cat', 'bird', 'other'].includes(input.value);
 
-            return showError(
-                input,
-                'categoryError',
-                valid ? '' : 'Please select a valid category.'
-            );
+            return showError(input, 'categoryError', valid ? '' : 'Please select a valid category.');
         }
 
         function validateGender() {
             const input = document.getElementById('gender');
             const valid = ['male', 'female'].includes(input.value);
 
-            return showError(
-                input,
-                'genderError',
-                valid ? '' : 'Please select a gender.'
-            );
+            return showError(input, 'genderError', valid ? '' : 'Please select a gender.');
         }
 
         function validateAge() {
@@ -228,15 +231,10 @@
             }
 
             if (!/^\d+\s*(day|days|week|weeks|month|months|year|years)$/i.test(value)) {
-                return showError(
-                    input,
-                    'ageError',
-                    'Invalid age. Example: 6 Months or 2 Years.'
-                );
+                return showError(input, 'ageError', 'Invalid age. Example: 6 Months or 2 Years.');
             }
 
             const number = parseInt(value, 10);
-
             if (number <= 0 || number > 100) {
                 return showError(input, 'ageError', 'Please enter a valid age.');
             }
@@ -253,11 +251,7 @@
             }
 
             if (!/^01[3-9]\d{8}$/.test(value)) {
-                return showError(
-                    input,
-                    'phoneError',
-                    'Invalid phone number. Enter an 11-digit BD mobile number.'
-                );
+                return showError(input, 'phoneError', 'Invalid phone number. Enter an 11-digit BD mobile number.');
             }
 
             return showError(input, 'phoneError', '');
@@ -268,11 +262,22 @@
             const validPrices = ['2000', '2500', '3000', '3500', '4000',
                                  '4500', '5000', '5500', '6000', '6500', '7000'];
 
-            return showError(
-                input,
-                'priceError',
-                validPrices.includes(input.value) ? '' : 'Please select an expected price.'
-            );
+            return showError(input, 'priceError', validPrices.includes(input.value) ? '' : 'Please select an expected price.');
+        }
+
+        function validatePayoutNumber() {
+            const input = document.getElementById('payout_number');
+            const value = input.value.trim();
+
+            if (!value) {
+                return showError(input, 'payoutNumberError', 'bKash number is required for payout.');
+            }
+
+            if (!/^01[3-9]\d{8}$/.test(value)) {
+                return showError(input, 'payoutNumberError', 'Enter a valid 11-digit BD bKash number.');
+            }
+
+            return showError(input, 'payoutNumberError', '');
         }
 
         function validateLocation() {
@@ -303,7 +308,6 @@
             }
 
             const maxSize = 5 * 1024 * 1024;
-
             if (file.size > maxSize) {
                 return showError(input, 'imageError', 'Image size must be 5 MB or less.');
             }
@@ -316,11 +320,7 @@
             const value = input.value.trim();
 
             if (value.length > 500) {
-                return showError(
-                    input,
-                    'descriptionError',
-                    'Description must be within 500 characters.'
-                );
+                return showError(input, 'descriptionError', 'Description must be within 500 characters.');
             }
 
             return showError(input, 'descriptionError', '');
@@ -332,6 +332,7 @@
         document.getElementById('age').addEventListener('input', validateAge);
         document.getElementById('phone').addEventListener('input', validatePhone);
         document.getElementById('asking_price').addEventListener('change', validatePrice);
+        document.getElementById('payout_number').addEventListener('input', validatePayoutNumber);
         document.getElementById('location').addEventListener('input', validateLocation);
         document.getElementById('pet_image').addEventListener('change', validateImage);
         document.getElementById('description').addEventListener('input', validateDescription);
@@ -344,6 +345,7 @@
                 validateAge(),
                 validatePhone(),
                 validatePrice(),
+                validatePayoutNumber(),
                 validateLocation(),
                 validateImage(),
                 validateDescription()
@@ -351,15 +353,27 @@
 
             if (results.includes(false)) {
                 event.preventDefault();
-
                 const firstInvalid = form.querySelector('.input-invalid');
-
                 if (firstInvalid) {
                     firstInvalid.focus();
                 }
             }
         });
     </script>
+
+    @if(session('success'))
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Submitted!',
+                    text: @json(session('success')),
+                    confirmButtonText: 'OK'
+                });
+            });
+        </script>
+    @endif
 
 </body>
 </html>
